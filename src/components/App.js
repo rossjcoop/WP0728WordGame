@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../styles/App.css';
+import hello from '../hello';
 
 class App extends Component {
+
+  state = {
+      words: ""
+    };
+
+  componentWillMount() {
+    let wordsArr = hello.toLowerCase().split("\n")
+
+    let wordsArr2 = ["hello", "world"]
+    let randWord = wordsArr2[Math.floor(Math.random() * wordsArr2.length)];
+    console.log("Hello file", wordsArr)
+    // this.setState({words: words.}) 
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <div>
+          <h1>{this.state.words}</h1>
+        </div>     
     );
   }
 }
